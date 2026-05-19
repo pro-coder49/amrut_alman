@@ -1,1 +1,257 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registration Successful | Ads with Amrut</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#ffffff;--bg2:#f5f5fa;--bg3:#0a0a2e;--purple:#8445FF;--purple2:#D65BFF;--pink:#FF6BCC;--green:#00c853;--white:#ffffff;--gray:#555;--gray2:#888;--ink:#111;--line:rgba(0,0,0,0.08);--grad:linear-gradient(91deg,#8445FF 0%,#D65BFF 53.57%);--glow:0 4px 24px rgba(132,69,255,0.3);--r:16px}
+    html{scroll-behavior:smooth; height: 100%;}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden; display: flex; flex-direction: column; min-height: 100vh;}
+    
+    .wrap{max-width:1100px;margin:0 auto;padding:0 24px; position: relative; z-index: 1;}
+    
+    /* Highlight text */
+    .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline}
+    
+    /* Dotted Wave BG */
+    .dotted-wave-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
+    .dotted-wave-bg canvas{position:absolute;top:0;left:0;width:100%;height:100%}
+    /* Grid Pattern */
+    .grid-bg{background-image:linear-gradient(rgba(0,0,0,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.07) 1px,transparent 1px);background-size:40px 40px}
+    
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--grad);color:#fff;padding:16px 36px;border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;box-shadow:var(--glow);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden; text-decoration: none;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 36px rgba(132,69,255,0.45)}
+    .btn::before{content:'';position:absolute;top:0;left:0;background:#fff;width:30px;height:calc(100% + 30px);margin-top:-20px;transform:skew(-20deg);opacity:.2;filter:blur(8px);pointer-events:none;animation:shine 2s linear infinite}
+    @keyframes shine{0%{left:-60px}100%{left:calc(100% + 60px)}}
+    .btn-full{width:100%}
+    
+    .btn-whatsapp { background: #25D366; box-shadow: 0 4px 24px rgba(37, 211, 102, 0.3); }
+    .btn-whatsapp:hover { background: #128C7E; box-shadow: 0 8px 36px rgba(37, 211, 102, 0.45); }
+    
+    /* Section */
+    .sec{padding:80px 0;position:relative; flex-grow: 1; display: flex; align-items: center; justify-content: center; min-height: calc(100vh - 140px);}
+    .sec-light{background:var(--bg2)}
+    
+    /* Warn card (Used for the yellow notice box in the Thank You page to match theme) */
+    .warn-card{background:var(--white);border:1.5px solid rgba(132,69,255,0.2);border-radius:20px;padding:32px;margin-top:20px;box-shadow:0 4px 32px rgba(132,69,255,0.06)}
+    .warn-card-title{font-size:1.1rem;font-weight:700;line-height:1.4;margin-bottom:8px;color:var(--ink)}
+    .warn-card-body{font-size:.88rem;color:var(--gray);line-height:1.7}
+    
+    /* Fade animation */
+    .fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+
+    /* Thank You specific elements */
+    .ty-card {
+      padding: 50px 0;
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .ty-icon {
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 200, 83, 0.1);
+      color: var(--green);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      border: 2px solid rgba(0, 200, 83, 0.2);
+    }
+    
+    .ty-icon svg { width: 40px; height: 40px; }
+    
+    .ty-title {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    
+    .ty-subtitle {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    
+    .ty-desc {
+      font-size: 1.05rem;
+      color: var(--gray);
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer{background:var(--bg3);border-top:1px solid var(--line);padding:24px;text-align:center;font-size:.78rem;color:rgba(255,255,255,0.5); position: relative; z-index: 2;}
+    footer a{color:var(--purple2); text-decoration: none;}
+    
+    .support-bar {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .support-title {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+    
+    .support-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .support-link:hover { color: var(--purple2); }
+
+    @media(max-width:640px) {
+      .wrap { padding: 0 16px; }
+      .ty-card { padding: 40px 0; }
+      .warn-card { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION WITH GRID & DOTS -->
+  <section class="sec grid-bg">
+    <div class="dotted-wave-bg"><canvas id="dotCanvas"></canvas></div>
+    
+    <div class="wrap fade-up">
+      <div class="ty-card">
+        
+        <div class="ty-icon">
+          <i data-lucide="check" stroke-width="3"></i>
+        </div>
+        
+        <h1 class="ty-title">"Registration <span class="hl">Successful!</span>"</h1>
+        
+        <p class="ty-subtitle">
+          "तुम्ही 'Facebook Ads with AI Masterclass' साठी तुमची सीट confirm केली आहे. आता बिझनेस वाढवायला Ready राहा! 🚀"
+        </p>
+        
+        <p class="ty-desc">
+          आमच्या Live Training ची लिंक, टाइमिंग आणि इतर सर्व डिटेल्स तुम्हाला याच WhatsApp ग्रुपवर मिळतील. त्यामुळे अपडेटेड राहण्यासाठी ग्रुप नक्की जॉईन करा! 👇
+        </p>
+
+        <a href="https://chat.whatsapp.com/H5detzYvHb64l1oVKeFi94" class="btn btn-full btn-whatsapp" style="max-width: 400px; margin: 0 auto 40px auto; font-size: 1.15rem; padding: 20px 36px;">
+          <i data-lucide="message-circle" style="width: 24px; height: 24px; fill: currentColor;"></i> VIP WhatsApp ग्रुप जॉईन करा →
+        </a>
+
+        <!-- Matching the Warn Card from landing page for the tip box -->
+        <div class="warn-card" style="text-align: left; background: rgba(132,69,255,0.03);">
+          <div style="font-size: 1.6rem; margin-bottom: 12px;">🔒</div>
+          <div class="warn-card-title">Important Tip (Payment Verification):</div>
+          <p class="warn-card-body">
+            "हा ग्रुप फक्त आपल्या Paid Members साठी आहे. ग्रुपमध्ये फालतू गर्दी नको, म्हणून आम्ही ही Private Community ठेवली आहे. तुम्ही 'Join' रिक्वेस्ट पाठवल्यावर आमची टीम तुमचं Payment चेक करेल आणि लगेच तुमची रिक्वेस्ट Approve करेल. त्यामुळे रिक्वेस्ट पाठवून थोडा वेळ रिलॅक्स राहा, आम्ही तुम्हाला नक्की अॅड करू!"
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="support-bar">
+      <div class="support-title">"काही अडचण येत आहे? काळजी करू नका, आमची सपोर्ट टीम मदतीसाठी तयार आहे."</div>
+      <div class="support-links">
+        <a href="tel:8830841575" class="support-link">
+          <i data-lucide="phone-call" style="width:16px; height:16px"></i> Call: 8830841575
+        </a>
+        <a href="https://wa.me/918830841575" class="support-link">
+          <i data-lucide="message-circle" style="width:16px; height:16px"></i> WhatsApp: 8830841575
+        </a>
+      </div>
+      <div style="margin-top: 16px; opacity: 0.5; font-size: 0.75rem;">
+        © 2026 · a3digital.in · All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Scroll reveal animation
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting)e.target.classList.add('visible')
+      })
+    },{threshold:0.08});
+    document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+
+    // Dotted Background Canvas Animation (Copied directly from landing page)
+    (function(){
+      var c=document.getElementById('dotCanvas');
+      if(!c)return;
+      var ctx=c.getContext('2d');
+      var dots=[];
+      var w,h;
+      function resize(){
+        w=c.width=c.parentElement.offsetWidth;
+        h=c.height=c.parentElement.offsetHeight;
+        dots=[];
+        for(var i=0;i<120;i++){
+          dots.push({
+            x:Math.random()*w,
+            y:Math.random()*h,
+            r:Math.random()*3+1.5,
+            dx:Math.random()*0.6-0.3,
+            dy:Math.random()*0.6-0.3,
+            o:Math.random()*0.4+0.2
+          });
+        }
+      }
+      resize();
+      window.addEventListener('resize',resize);
+      function draw(){
+        ctx.clearRect(0,0,w,h);
+        dots.forEach(function(d){
+          ctx.beginPath();
+          ctx.arc(d.x,d.y,d.r,0,Math.PI*2);
+          ctx.fillStyle='rgba(132,69,255,'+d.o+')';
+          ctx.fill();
+          d.x+=d.dx;
+          d.y+=d.dy;
+          if(d.x<0||d.x>w)d.dx*=-1;
+          if(d.y<0||d.y>h)d.dy*=-1;
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+  </script>
+</body>
+</html>
 
